@@ -6,10 +6,12 @@ import StudentInfo from './StudentInfo';
 import SelectTimeWindow from '../../components/SelectTimeWindow';
 import DisplaySelectedTimeWindows from './DisplaySelectedTimeWindows';
 
+type InputEl = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+
 const StudentForm: React.FC = () => {
   const { setStudent } = useContext(StudentContext);
 
-  const handleFieldChange = (event: any) => {
+  const handleFieldChange = (event: React.ChangeEvent<InputEl>) => {
     const { name, value } = event.target;
     setStudent((prevStudent: Student) => ({
       ...prevStudent,
